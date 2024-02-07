@@ -1,6 +1,7 @@
 package edu.hogwarts.application;
 
 import edu.generic.Teacher;
+import edu.hogwarts.data.HogwartsStudent;
 import edu.hogwarts.data.HogwartsTeacher;
 
 import java.util.ArrayList;
@@ -11,8 +12,10 @@ public class TeacherController {
 
     HashMap<UUID, HogwartsTeacher> teacherList;
 
-    public void createTeacher(HogwartsTeacher hogwartsTeacher) {
-        teacherList.put(hogwartsTeacher.getId(), hogwartsTeacher);
+    public void createMoreStudents(HogwartsTeacher... teachers) {
+        for (var student : teachers) {
+            teacherList.put(student.getId(), student);
+        }
     }
 
     public HogwartsTeacher getTeacher(UUID id) {

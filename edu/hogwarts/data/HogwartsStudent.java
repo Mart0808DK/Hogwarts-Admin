@@ -2,14 +2,16 @@ package edu.hogwarts.data;
 
 import edu.generic.Student;
 
+import java.time.LocalDate;
+
 public class HogwartsStudent extends Student implements HogwartsPerson{
 
     private House house;
     private boolean prefect;
     private String[] teams;
 
-    public HogwartsStudent(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullname) {
-        super(enrollmentYear, graduationYear, graduated, fullname);
+    public HogwartsStudent(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullname, LocalDate birthDate) {
+        super(enrollmentYear, graduationYear, graduated, fullname, birthDate);
         this.house = house;
         this.prefect = prefect;
         this.teams = teams;

@@ -1,6 +1,5 @@
 package edu.hogwarts.application;
 
-import edu.generic.Student;
 import edu.hogwarts.data.HogwartsStudent;
 
 import java.util.ArrayList;
@@ -14,8 +13,10 @@ public class StudentController {
         studentsList = new HashMap<>();
     }
 
-    public void createStudent(HogwartsStudent hogwartsStudents) {
-        studentsList.put(hogwartsStudents.getId(), hogwartsStudents);
+    public void createMoreStudents(HogwartsStudent... students) {
+        for (var student : students) {
+            studentsList.put(student.getId(), student);
+        }
     }
 
     public HogwartsStudent getStudent(UUID id) {

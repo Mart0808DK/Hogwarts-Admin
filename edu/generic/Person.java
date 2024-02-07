@@ -1,11 +1,14 @@
 package edu.generic;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Person {
     private String firstName;
     private String middleName;
     private String lastName;
+
+    private LocalDate birthDate;
 
     private UUID id;
 
@@ -24,8 +27,9 @@ public class Person {
             this.lastName = lastName;
     }
 
-    public Person(String fullName) {
+    public Person(String fullName, LocalDate birthDate) {
         setFullName(fullName);
+        this.birthDate = birthDate;
     }
 
     public Person(Person other) {
@@ -39,6 +43,14 @@ public class Person {
 
     public UUID getId() {
         return id;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getFirstName() {

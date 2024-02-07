@@ -15,16 +15,13 @@ public class Application {
     TeacherController teacherController;
     public static void main(String[] args) {
         Application app = new Application();
-        app.pageLoad();
+        app.startApp();
     }
 
-    public void pageLoad() {
-        var startApp = new InitApp();
-        var userInterface = new UserInterface();
-        var studentController = new StudentController();
-        var teacherController = new TeacherController();
+    public void startApp() {
+        var initApp = new InitApp();
+        initApp.pageLoad();
 
-        startApp.pageLoad();
     }
 
 
