@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public class Tool extends TeachingMaterial {
     private String name;
 
@@ -35,7 +37,7 @@ public class Tool extends TeachingMaterial {
 
     @Override
     public String toString() {
-        return "Tool{" +
+        return "edu.hogwarts.data.Tool{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';

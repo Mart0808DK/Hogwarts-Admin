@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public class Wand extends TeachingMaterial {
     private double lengthInInches;
 
@@ -46,7 +48,7 @@ public class Wand extends TeachingMaterial {
 
     @Override
     public String toString() {
-        return "Wand{" +
+        return "edu.hogwarts.data.Wand{" +
                 "lengthInInches=" + lengthInInches +
                 ", wood='" + wood + '\'' +
                 ", core='" + core + '\'' +

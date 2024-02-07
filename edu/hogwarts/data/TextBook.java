@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public class TextBook extends TeachingMaterial {
     private String title;
     private String author;
@@ -57,7 +59,7 @@ public class TextBook extends TeachingMaterial {
 
     @Override
     public String toString() {
-        return "TextBook{" +
+        return "edu.hogwarts.data.TextBook{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +

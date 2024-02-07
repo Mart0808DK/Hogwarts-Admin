@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public class House implements HogwartsPerson {
 
     private String name;
@@ -47,7 +49,7 @@ public class House implements HogwartsPerson {
             }
             colorString.replace(colorString.lastIndexOf(", "), colorString.length()-1, ".");
         }
-        return "House{\n" +
+        return "edu.hogwarts.data.House{\n" +
                 " name: " + name + "\n" +
                 " founder: " + founder + "\n" +
                 " colors: " + colorString + "\n" +

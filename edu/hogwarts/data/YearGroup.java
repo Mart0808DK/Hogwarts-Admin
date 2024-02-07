@@ -1,3 +1,7 @@
+package edu.hogwarts.data;
+
+import edu.generic.Student;
+
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -41,7 +45,7 @@ public class YearGroup {
 
     @Override
     public String toString() {
-        return "YearGroup{" +
+        return "edu.hogwarts.data.YearGroup{" +
                 "schoolYear=" + schoolYear +
                 ", beginningOfSchoolYear=" + beginningOfSchoolYear +
                 ", students=" + Arrays.toString(students) +

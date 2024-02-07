@@ -1,3 +1,8 @@
+package edu.hogwarts.data;
+
+import edu.generic.Student;
+import edu.generic.Teacher;
+
 import java.util.Arrays;
 
 public class Course {
@@ -57,7 +62,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "edu.hogwarts.data.Course{" +
                 "subject=" + subject +
                 ", teacher=" + teacher +
                 ", students=" + Arrays.toString(students) +

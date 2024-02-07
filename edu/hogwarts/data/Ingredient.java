@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public class Ingredient extends TeachingMaterial {
     private String name;
 
@@ -46,7 +48,7 @@ public class Ingredient extends TeachingMaterial {
 
     @Override
     public String toString() {
-        return "Ingredient{" +
+        return "edu.hogwarts.data.Ingredient{" +
                 "name='" + name + '\'' +
                 ", amount=" + amount +
                 ", unit='" + unit + '\'' +

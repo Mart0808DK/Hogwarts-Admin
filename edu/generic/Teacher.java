@@ -1,3 +1,7 @@
+package edu.generic;
+
+import edu.generic.Person;
+
 import java.time.LocalDate;
 
 public class Teacher extends Person {

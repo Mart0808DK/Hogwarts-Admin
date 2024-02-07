@@ -1,19 +1,24 @@
-import java.util.Arrays;
+package edu.generic;
+
+import java.util.UUID;
 
 public class Person {
     private String firstName;
     private String middleName;
     private String lastName;
 
+    private UUID id;
+
     public Person(String firstName, String lastName) {
         this(firstName, null, lastName);
     }
 
     public Person() {
-        
+        this.id = UUID.randomUUID();
     }
 
     public Person(String firstName, String middleName, String lastName) {
+            this();
             this.firstName = firstName;
             this.middleName = middleName;
             this.lastName = lastName;
@@ -30,6 +35,11 @@ public class Person {
     }
 
     // getters og setters før atributter
+
+
+    public UUID getId() {
+        return id;
+    }
 
     public String getFirstName() {
         return firstName;

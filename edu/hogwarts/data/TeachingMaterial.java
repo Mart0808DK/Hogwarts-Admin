@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public abstract class TeachingMaterial {
     private String name;
     private boolean onShoppingList;
@@ -60,7 +62,7 @@ public abstract class TeachingMaterial {
 
     @Override
     public String toString() {
-        return "TeachingMaterial{" +
+        return "edu.hogwarts.data.TeachingMaterial{" +
                 "name='" + name + '\'' +
                 ", onShoppingList=" + onShoppingList +
                 ", required=" + required +

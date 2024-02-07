@@ -1,6 +1,11 @@
+package edu.hogwarts.application;
+
+import edu.generic.empType;
+import edu.hogwarts.data.*;
+
 import java.time.LocalDate;
 
-public class Application {
+public class InitApp {
     House[] houses;
     HogwartsStudent[] students;
     Subject[] subjects;
@@ -8,10 +13,6 @@ public class Application {
     Course[] courses;
 
     HogwartsTeacher[] teachers;
-    public static void main(String[] args) {
-        Application app = new Application();
-        app.pageLoad();
-    }
 
     public void pageLoad() {
         pageLoadHouses();
@@ -118,7 +119,8 @@ public class Application {
 
         subjects = new Subject[]{potions};
 
-        System.out.println(potions);;
+        System.out.println(potions);
+        ;
     }
 
     public void pageLoadCourses() {
@@ -150,7 +152,7 @@ public class Application {
         textBook.setProvided(true);
         textBook.setRequired(true);
 
-        wand.setName("Wand");
+        wand.setName("edu.hogwarts.data.Wand");
         wand.setCore("Phoenix feather");
         wand.setWood("Holly");
         wand.setNotes("The wand chooses the wizard.");
@@ -181,5 +183,4 @@ public class Application {
         System.out.println(ingredient);
         System.out.println(textBook);
     }
-
 }
