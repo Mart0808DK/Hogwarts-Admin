@@ -6,50 +6,46 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class StudentController {
-    HashMap<UUID, HogwartsStudent> studentsList;
+public class StudentController extends Controller<HogwartsStudent>  {
+    private final HashMap<UUID, HogwartsStudent> students = new HashMap<>();
 
     public StudentController() {
-        studentsList = new HashMap<>();
+        super();
     }
 
-    public void createMoreStudents(HogwartsStudent... students) {
+    public ArrayList<HogwartsStudent> getAll() {
+        return new ArrayList<>(this.students.values());
+    }
+
+    public HogwartsStudent get(UUID id) {
+        return students.get(id);
+    }
+
+    public void add(HogwartsStudent student) {
+        students.put(student.getId(), student);
+    }
+
+    public void add(HogwartsStudent[] students) {
         for (var student : students) {
-            studentsList.put(student.getId(), student);
+            add(student);
         }
     }
 
-    public HogwartsStudent getStudent(UUID id) {
-        return studentsList.get(id);
+    public void update(UUID id, HogwartsStudent student) {
+        var oldStudent = get(id);
+        assert oldStudent != null;
+        oldStudent.setFullName(student.getFullName());
+        oldStudent.setBirthDate(student.getBirthDate());
+        oldStudent.setHouse(student.getHouse());
+        oldStudent.setPrefect(student.isPrefect());
+        oldStudent.setTeams(student.getTeams());
+        oldStudent.setEnrollmentYear(student.getEnrollmentYear());
+        oldStudent.setGraduationYear(student.getGraduationYear());
+        oldStudent.setGraduated(student.isGraduated());
+
     }
 
-    public ArrayList<HogwartsStudent> getAllStudent() {
-         return new ArrayList<HogwartsStudent>(studentsList.values());
+    public void delete(UUID id) {
+        students.remove(id);
     }
-
-    public void updateStudent(UUID id, HogwartsStudent updatedStudent) {
-        HogwartsStudent existingStudent = studentsList.get(id);
-
-        if (existingStudent != null) {
-            existingStudent.setFullName(updatedStudent.getFullName());
-            existingStudent.setEnrollmentYear(updatedStudent.getEnrollmentYear());
-            existingStudent.setGraduationYear(updatedStudent.getGraduationYear());
-            existingStudent.setGraduated(updatedStudent.isGraduated());
-            existingStudent.setTeams(updatedStudent.getTeams());
-            existingStudent.setPrefect(updatedStudent.isPrefect());
-            existingStudent.setHouse(updatedStudent.getHouse());
-
-            studentsList.put(id, existingStudent);
-        } else {
-            System.out.println("Student with ID " + id + " does not exist.");
-        }
-    }
-
-
-
-    public void deleteStudent(UUID id) {
-        studentsList.remove(id);
-    }
-
-
 }

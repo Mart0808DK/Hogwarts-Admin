@@ -31,6 +31,7 @@ public class Person {
     public Person(String fullName, LocalDate birthDate) {
         setFullName(fullName);
         this.birthDate = birthDate;
+        this.id = UUID.randomUUID();
     }
 
     public Person(Person other) {
