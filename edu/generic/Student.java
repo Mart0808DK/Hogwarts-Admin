@@ -5,6 +5,8 @@ import edu.generic.Person;
 import java.time.LocalDate;
 
 public class Student extends Person {
+
+    private empType role = empType.STUDENT;
     private int enrollmentYear;
     private int graduationYear;
     private boolean graduated;
@@ -18,13 +20,22 @@ public class Student extends Person {
     public Student() {
     }
 
+    @Override
     public String toString() {
-        return "edu.generic.Student{\n" +
-                "fullName" + getFullName() + "\n" +
-                "enrollmentYear: " + enrollmentYear + "\n" +
-                "graduationYear: " + graduationYear + "\n" +
-                "graduated: " + graduated + "\n" +
-                "}";
+        return "Student{" +
+                "role=" + getRole() +
+                ", enrollmentYear=" + getEnrollmentYear() +
+                ", graduationYear=" + getGraduationYear() +
+                ", graduated=" + isGraduated() +
+                '}';
+    }
+
+    public empType getRole() {
+        return role;
+    }
+
+    public void setRole(empType role) {
+        this.role = role;
     }
 
     public int getEnrollmentYear() {

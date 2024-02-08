@@ -12,11 +12,12 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
 
     public HogwartsTeacher(){}
 
-    public HogwartsTeacher(empType employment, LocalDate employmentStart, LocalDate employmentEnd, String fullname, LocalDate birthDate,  House house, boolean headOfHouse) {
-        super(employment, employmentStart, employmentEnd, fullname, birthDate);
+    public HogwartsTeacher(House house, boolean headOfHouse, LocalDate employmentStart, LocalDate employmentEnd, String fullName, LocalDate birthDate) {
+        super(employmentStart, employmentEnd, fullName, birthDate);
         this.house = house;
         this.headOfHouse = headOfHouse;
     }
+
 
     public HogwartsTeacher(House house, boolean headOfHouse) {
         this.house = house;
@@ -43,7 +44,7 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
     public String toString() {
         return "edu.hogwarts.data.HogwartsTeacher{\n" +
                 " fullName: " + getFullName() + "\n" +
-                " employment: " + getEmployment() + "\n" +
+                " employment: " + getRole() + "\n" +
                 " employmentStart: " + getEmploymentStart() + "\n" +
                 " employmentEnd: " + getEmploymentEnd() + "\n" +
                 " house: " + house.getName() + "\n" +

@@ -1,31 +1,39 @@
 package edu.generic;
 
-import edu.generic.Person;
-
 import java.time.LocalDate;
 
 public class Teacher extends Person {
-    private empType employment;
-
+    private empType role = empType.TEACHER;
     private LocalDate employmentStart;
-
     private LocalDate employmentEnd;
 
-    public Teacher(empType employment, LocalDate employmentStart, LocalDate employmentEnd, String fullname, LocalDate birthDate) {
+    public Teacher(empType role, LocalDate employmentStart, LocalDate employmentEnd, String fullname, LocalDate birthDate) {
         super(fullname, birthDate);
-        this.employment = employment;
+        this.role = role;
         this.employmentStart = employmentStart;
         this.employmentEnd = employmentEnd;
     }
 
-    public Teacher(){};
-
-    public empType getEmployment() {
-        return employment;
+    public Teacher() {
+        // Default constructor
     }
 
-    public void setEmployment(empType employment) {
-        this.employment = employment;
+
+    public Teacher(LocalDate employmentStart, LocalDate employmentEnd, String fullName, LocalDate birthDate) {
+        super(fullName, birthDate);
+        this.employmentStart = employmentStart;
+        this.employmentEnd = employmentEnd;
+
+    }
+
+    // Getters and setters
+
+    public empType getRole() {
+        return role;
+    }
+
+    public void setRole(empType role) {
+        this.role = role;
     }
 
     public LocalDate getEmploymentStart() {

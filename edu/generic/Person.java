@@ -1,6 +1,7 @@
 package edu.generic;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.UUID;
 
 public class Person {
@@ -51,6 +52,12 @@ public class Person {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public int getAge() {
+        LocalDate hogwartsYear1991 = LocalDate.of(1991, 9, 1); // Date from the year 1991
+        Period period = Period.between(hogwartsYear1991, getBirthDate());
+        return Math.abs(period.getYears()); // Return the absolute value of the years
     }
 
     public String getFirstName() {

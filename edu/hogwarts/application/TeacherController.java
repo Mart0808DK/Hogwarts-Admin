@@ -10,13 +10,19 @@ import java.util.UUID;
 
 public class TeacherController {
 
-    HashMap<UUID, HogwartsTeacher> teacherList;
+    private HashMap<UUID, HogwartsTeacher> teacherList;
 
     public void createMoreStudents(HogwartsTeacher... teachers) {
         for (var student : teachers) {
             teacherList.put(student.getId(), student);
         }
     }
+
+    public TeacherController() {
+        this.teacherList = new HashMap<>();
+    }
+
+
 
     public HogwartsTeacher getTeacher(UUID id) {
         return teacherList.get(id);
@@ -32,7 +38,7 @@ public class TeacherController {
             existingTeacher.setFullName(updatedTeacher.getFullName());
             existingTeacher.setHouse(updatedTeacher.getHouse());
             existingTeacher.setHeadOfHouse(updatedTeacher.isHeadOfHouse());
-            existingTeacher.setEmployment(updatedTeacher.getEmployment());
+            existingTeacher.setRole(updatedTeacher.getRole());
             existingTeacher.setEmploymentStart(updatedTeacher.getEmploymentStart());
             existingTeacher.setEmploymentEnd(updatedTeacher.getEmploymentEnd());
         }
