@@ -76,6 +76,7 @@ public class House implements HogwartsPerson {
         return false;
     }
 
+
     public String toString() {
         StringBuilder colorString = new StringBuilder();
         if(colors.length > 0){

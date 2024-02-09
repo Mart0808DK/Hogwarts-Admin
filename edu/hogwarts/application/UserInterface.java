@@ -1,5 +1,6 @@
 package edu.hogwarts.application;
 
+import edu.generic.empType;
 import edu.hogwarts.data.*;
 import edu.utility.FilterData;
 import edu.utility.SortData;
@@ -117,14 +118,14 @@ public class UserInterface {
         int endYear = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
-        System.out.println("Enter teams (comma-separated): ");
-        String[] teams = scanner.nextLine().split(",");
+        System.out.println("Enter role (comma-separated): ");
+        String[] role = scanner.nextLine().split(",");
 
         System.out.println("Enter if you are graduated: ");
         boolean graduated = scanner.nextBoolean();
         scanner.nextLine(); // Consume newline
 
-        HogwartsStudent student = new HogwartsStudent(house, isPrefect, teams, startYear, endYear, graduated, fullName, birthdate);
+        HogwartsStudent student = new HogwartsStudent(house, isPrefect, role, startYear, endYear, graduated, fullName, birthdate);
         studentController.add(student);
 
         System.out.println("Student was created");
@@ -226,29 +227,31 @@ public class UserInterface {
 
     public void viewStudent() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
-        System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-        System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
-        System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
+        System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
         for (HogwartsStudent student : allStudents) {
-            System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                    student.getFullName(), student.getRole(), student.getEnrollmentYear(),
-                    student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
+            System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                    student.getFirstName(), student.getMiddleName(), student.getLastName(),
+                    student.getAge(), student.getHouse().getName(), student.getRole());
         }
-        System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
     }
 
     public void viewTeacher() {
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
 
-        System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
-        System.out.println("│ Full Name                      │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
-        System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
+        System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
         for (HogwartsTeacher teacher : allTeachers) {
-            System.out.printf("│ %-30s │ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
-                    teacher.getFullName(), teacher.getRole(), teacher.getEmploymentStart(),
-                    teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
+            System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                    teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(),
+                    teacher.getAge(), teacher.getHouse().getName(), teacher.getRole());
         }
-        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
     }
 
     public void viewAll() {
@@ -303,58 +306,58 @@ public class UserInterface {
         SortData sortData = new SortData(studentController, teacherController);
         switch (sortChoice) {
             case 1:
-                System.out.println("In nr one");
                 var studentNameAsc = sortData.sortStudentsNameAsc();
-                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
-                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsStudent student : studentNameAsc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                            student.getFullName(), student.getRole(), student.getEnrollmentYear(),
-                            student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(),
+                            student.getAge(), student.getHouse().getName(), student.getRole());
                 }
-                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
                 break;
             case 2:
-                System.out.println("In nr two");
                 var studentNameDesc = sortData.sortStudentsNameDesc();
-                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
-                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsStudent student : studentNameDesc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                            student.getFullName(), student.getRole(), student.getEnrollmentYear(),
-                            student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(),
+                            student.getAge(), student.getHouse().getName(), student.getRole());
                 }
-                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
 
                 break;
             case 3:
-                System.out.println("In nr three");
                 var studentAgeAsc = sortData.sortedStudentAgeAsc();
-                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
-                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsStudent student : studentAgeAsc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                            student.getFullName(), student.getRole(), student.getEnrollmentYear(),
-                            student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(),
+                            student.getAge(), student.getHouse().getName(), student.getRole());
                 }
-                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
 
                 break;
             case 4:
-                System.out.println("In nr four");
                 var studentAgeDesc =  sortData.sortedStudentAgeDesc();
-                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
-                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsStudent student : studentAgeDesc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                            student.getFullName(), student.getRole(), student.getEnrollmentYear(),
-                            student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(),
+                            student.getAge(), student.getHouse().getName(), student.getRole());
                 }
-                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
 
         }
     }
@@ -367,12 +370,12 @@ public class UserInterface {
                 System.out.println("In nr one");
                 var teacherNameAsc = sortData.sortedTeacherNameAsc();
                 System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
-                System.out.println("│ Full Name                      │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
                 System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsTeacher teacher : teacherNameAsc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
-                            teacher.getFullName(), teacher.getRole(), teacher.getEmploymentStart(),
-                            teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(),
+                            teacher.getAge(), teacher.getHouse().getName(), teacher.getRole());
                 }
                 System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
@@ -380,12 +383,12 @@ public class UserInterface {
                 System.out.println("In nr two");
                 var teacherNameDesc = sortData.sortedTeacherNameDesc();
                 System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
-                System.out.println("│ Full Name                      │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
                 System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsTeacher teacher : teacherNameDesc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
-                            teacher.getFullName(), teacher.getRole(), teacher.getEmploymentStart(),
-                            teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(),
+                            teacher.getAge(), teacher.getHouse().getName(), teacher.getRole());
                 }
                 System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
@@ -393,29 +396,28 @@ public class UserInterface {
                 System.out.println("In nr three");
                 var teacherAgeAsc = sortData.sortedTeacherAgeAsc();
                 System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
-                System.out.println("│ Full Name                      │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
                 System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsTeacher teacher : teacherAgeAsc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
-                            teacher.getFullName(), teacher.getRole(), teacher.getEmploymentStart(),
-                            teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(),
+                            teacher.getAge(), teacher.getHouse().getName(), teacher.getRole());
                 }
                 System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
-
                 break;
             case 4:
                 System.out.println("In nr four");
                 var teacherAgeDesc =  sortData.sortedTeacherAgeDesc();
                 System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
-                System.out.println("│ Full Name                      │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ House      │ Role       ");
                 System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsTeacher teacher : teacherAgeDesc) {
-                    System.out.printf("│ %-30s │ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
-                            teacher.getFullName(), teacher.getRole(), teacher.getEmploymentStart(),
-                            teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s│ %-10s\n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(),
+                            teacher.getAge(), teacher.getHouse().getName(), teacher.getRole());
                 }
                 System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
-
+                break;
         }
     }
 
@@ -431,10 +433,10 @@ public class UserInterface {
             case 2:
                 System.out.println("Teachers");
                 menu.innerFilterTeacherMenu();
+                handleInnerTeacherFilter();
                 break;
         }
     }
-
     private void handleInnerStudentsFilter() {
         int filterChoice = scanner.nextInt();
         FilterData filterData = new FilterData(studentController, teacherController);
@@ -443,23 +445,78 @@ public class UserInterface {
                 scanner.nextLine();
                 System.out.print("Write House Name: ");
                 String houseName = scanner.nextLine().toUpperCase();
-                List<HogwartsStudent> houseFiltered = filterData.filterStudentHouse(houseName);
+                List<HogwartsStudent> houseFiltered = filterData.filterStudentHouse(HouseOrigin.valueOf(houseName));
                 System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
                 System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
                 for (HogwartsStudent student : houseFiltered) {
-                    System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                            student.getFullName(), student.getRole(), student.getEnrollmentYear(),
-                            student.getGraduationYear(), student.isGraduated(), houseName);
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
+                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
+                            student.isGraduated(), houseName);
                 }
                 System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
             case 2:
-                System.out.println("Hej");
+                scanner.nextLine();
+                System.out.print("Write True or False: ");
+                String graduationStatusString = scanner.nextLine().toLowerCase();
+                boolean graduationStatus = Boolean.parseBoolean(graduationStatusString); // Convert string to boolean
+                List<HogwartsStudent> graduationFiltered = filterData.filterStudentGraduation(graduationStatus);
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsStudent student : graduationFiltered) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
+                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
+                            student.isGraduated(), student.getHouse().getName());
+                }
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+    }
+}
+
+
+    private void handleInnerTeacherFilter() {
+        int filterChoice = scanner.nextInt();
+        FilterData filterData = new FilterData(studentController, teacherController);
+        switch (filterChoice) {
+            case 1:
+                scanner.nextLine();
+                System.out.print("Write House Name: ");
+                String houseName = scanner.nextLine().toUpperCase();
+                List<HogwartsTeacher> houseFiltered = filterData.filterTeacherHouse(HouseOrigin.valueOf(houseName));
+                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsTeacher teacher : houseFiltered) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
+                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
+                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                }
+                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 2:
+                scanner.nextLine(); // Consume newline
+                System.out.print("Write True or False: ");
+                String headOfHouseString = scanner.nextLine().toLowerCase();
+                boolean headOfHouse = Boolean.parseBoolean(headOfHouseString); // Convert string to boolean
+                List<HogwartsTeacher> HeadOfHouseList = filterData.filterTeacherHeadOfHouse(headOfHouse);
+                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsTeacher teacher : HeadOfHouseList) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
+                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
+                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                }
+                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
         }
     }
 
-
-
 }
+

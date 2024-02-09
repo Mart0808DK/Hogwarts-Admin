@@ -65,7 +65,7 @@ public class Menu {
     public void innerFilterStudentsMenu() {
         System.out.println(lineBreak);
         System.out.println("1. House");
-        System.out.println("2. Teams");
+        System.out.println("2. Graduated");
         System.out.println(lineBreak);
     }
     public void innerFilterTeacherMenu() {

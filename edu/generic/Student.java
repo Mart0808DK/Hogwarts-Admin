@@ -34,10 +34,6 @@ public class Student extends Person {
         return role;
     }
 
-    public void setRole(empType role) {
-        this.role = role;
-    }
-
     public int getEnrollmentYear() {
         return enrollmentYear;
     }
