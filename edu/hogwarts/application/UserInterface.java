@@ -1,6 +1,7 @@
 package edu.hogwarts.application;
 
 import edu.hogwarts.data.*;
+import edu.utility.FilterData;
 import edu.utility.SortData;
 
 import java.time.LocalDate;
@@ -421,10 +422,44 @@ public class UserInterface {
     private void handleFilterMenu() {
         menu.filterMenu();
         int filterSelection = scanner.nextInt();
-        // Handle submenu options if necessary
-        // For now, let's just return to the start menu
-        start();
+        switch (filterSelection) {
+            case 1:
+                System.out.println("Students");
+                menu.innerFilterStudentsMenu();
+                handleInnerStudentsFilter();
+                break;
+            case 2:
+                System.out.println("Teachers");
+                menu.innerFilterTeacherMenu();
+                break;
+        }
     }
+
+    private void handleInnerStudentsFilter() {
+        int filterChoice = scanner.nextInt();
+        FilterData filterData = new FilterData(studentController, teacherController);
+        switch (filterChoice) {
+            case 1:
+                scanner.nextLine();
+                System.out.print("Write House Name: ");
+                String houseName = scanner.nextLine().toUpperCase();
+                List<HogwartsStudent> houseFiltered = filterData.filterStudentHouse(houseName);
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsStudent student : houseFiltered) {
+                    System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFullName(), student.getRole(), student.getEnrollmentYear(),
+                            student.getGraduationYear(), student.isGraduated(), houseName);
+                }
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 2:
+                System.out.println("Hej");
+                break;
+        }
+    }
+
 
 
 }
