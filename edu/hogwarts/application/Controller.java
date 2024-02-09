@@ -1,8 +1,6 @@
 package edu.hogwarts.application;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public abstract class Controller<T> {
 

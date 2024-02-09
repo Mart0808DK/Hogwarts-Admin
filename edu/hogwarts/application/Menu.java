@@ -34,6 +34,7 @@ public class Menu {
         System.out.println(lineBreak);
         System.out.println("1. Students");
         System.out.println("2. Teachers");
+        System.out.println("3. Back to StartPage");
         System.out.println(lineBreak);
     }
 
@@ -44,10 +45,20 @@ public class Menu {
         System.out.println(lineBreak);
     }
 
-    public void innerSortMenu() {
+    public void innerSortStudentsMenu() {
         System.out.println(lineBreak);
-        System.out.println("1. Name");
-        System.out.println("2. Age");
+        System.out.println("1. Name ascending");
+        System.out.println("2. Name descending");
+        System.out.println("3. Age ascending");
+        System.out.println("4. Age descending");
+        System.out.println(lineBreak);
+    }
+    public void innerSortTeacherMenu() {
+        System.out.println(lineBreak);
+        System.out.println("1. Name ascending");
+        System.out.println("2. Name descending");
+        System.out.println("3. Age ascending");
+        System.out.println("4. Age descending");
         System.out.println(lineBreak);
     }
 

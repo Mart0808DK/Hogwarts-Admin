@@ -4,9 +4,7 @@ import edu.generic.Teacher;
 import edu.hogwarts.data.HogwartsStudent;
 import edu.hogwarts.data.HogwartsTeacher;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public class TeacherController extends Controller<HogwartsTeacher> {
 
@@ -23,6 +21,12 @@ public class TeacherController extends Controller<HogwartsTeacher> {
 
     public void add(HogwartsTeacher teacher) {
         teacherList.put(teacher.getId(), teacher);
+    }
+
+    public List<HogwartsTeacher> sortAllTeachers(Comparator<HogwartsTeacher> comparator) {
+        List<HogwartsTeacher> sortedList = getAll();
+        sortedList.sort(comparator);
+        return sortedList;
     }
 
 

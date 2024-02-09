@@ -2,9 +2,7 @@ package edu.hogwarts.application;
 
 import edu.hogwarts.data.HogwartsStudent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public class StudentController extends Controller<HogwartsStudent>  {
     private final HashMap<UUID, HogwartsStudent> students = new HashMap<>();
@@ -29,6 +27,12 @@ public class StudentController extends Controller<HogwartsStudent>  {
         for (var student : students) {
             add(student);
         }
+    }
+
+    public List<HogwartsStudent> sortAllStudents(Comparator<HogwartsStudent> comparator) {
+        List<HogwartsStudent> sortedList = getAll();
+        sortedList.sort(comparator);
+        return sortedList;
     }
 
     public void update(UUID id, HogwartsStudent student) {
