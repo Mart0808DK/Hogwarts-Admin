@@ -40,8 +40,13 @@ public class UserInterface {
             case 4:
                 handleFilterMenu();
                 break;
+            case 0:
+                System.out.println("Goodbye");
+                System.exit(0);
+                break;
             default:
-                System.out.println("Invalid selection. Please choose a valid option.");
+                System.out.println("Invalid option");
+                start();
         }
     }
 
@@ -130,8 +135,8 @@ public class UserInterface {
 
         System.out.println("Student was created");
         System.out.println("Press any key to return to the main menu.");
-        scanner.nextLine(); // Consume newline
-        menu.startMenu();
+        scanner.nextLine();
+        start();
     }
 
 
@@ -236,6 +241,9 @@ public class UserInterface {
                     student.getAge(), student.getHouse().getName(), student.getRole());
         }
         System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("Enter any number to get to the start menu");
+        scanner.nextInt();
+        start();
 
     }
 
@@ -251,6 +259,10 @@ public class UserInterface {
                     teacher.getAge(), teacher.getHouse().getName(), teacher.getRole());
         }
         System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+
+        System.out.println("Enter any number to get to the start menu");
+        scanner.nextInt();
+        start();
 
     }
 
@@ -360,6 +372,9 @@ public class UserInterface {
 
 
         }
+        System.out.println("Enter any number to get to the start menu");
+        scanner.nextInt();
+        start();
     }
 
     private void handleInnerSortTeacherMenu() {
@@ -419,6 +434,9 @@ public class UserInterface {
                 System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
         }
+        System.out.println("Enter any number to get to the start menu");
+        scanner.nextInt();
+        start();
     }
 
     private void handleFilterMenu() {
@@ -475,6 +493,9 @@ public class UserInterface {
                 System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
     }
+        System.out.println("Enter any number to get to the start menu");
+        scanner.nextInt();
+        start();
 }
 
 
@@ -516,6 +537,9 @@ public class UserInterface {
                 System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
                 break;
         }
+        System.out.println("Enter any number to get to the start menu");
+        scanner.nextInt();
+        start();
     }
 
 }

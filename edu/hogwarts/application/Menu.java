@@ -11,6 +11,7 @@ public class Menu {
         System.out.println("2. View");
         System.out.println("3. Sort");
         System.out.println("4. Filter");
+        System.out.println("0. Exit");
         System.out.println(lineBreak);
 
     }
