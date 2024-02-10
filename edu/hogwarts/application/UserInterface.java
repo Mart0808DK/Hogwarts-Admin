@@ -460,20 +460,7 @@ public class UserInterface {
         FilterData filterData = new FilterData(studentController, teacherController);
         switch (filterChoice) {
             case 1:
-                scanner.nextLine();
-                System.out.print("Write House Name: ");
-                String houseName = scanner.nextLine().toUpperCase();
-                List<HogwartsStudent> houseFiltered = filterData.filterStudentHouse(HouseOrigin.valueOf(houseName));
-                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
-                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
-                for (HogwartsStudent student : houseFiltered) {
-                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
-                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
-                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
-                            student.isGraduated(), houseName);
-                }
-                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                houseFilterStudents();
                 break;
             case 2:
                 scanner.nextLine();
@@ -504,20 +491,7 @@ public class UserInterface {
         FilterData filterData = new FilterData(studentController, teacherController);
         switch (filterChoice) {
             case 1:
-                scanner.nextLine();
-                System.out.print("Write House Name: ");
-                String houseName = scanner.nextLine().toUpperCase();
-                List<HogwartsTeacher> houseFiltered = filterData.filterTeacherHouse(HouseOrigin.valueOf(houseName));
-                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
-                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
-                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
-                for (HogwartsTeacher teacher : houseFiltered) {
-                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
-                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
-                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
-                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
-                }
-                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                houseFilterTeacher();
                 break;
             case 2:
                 scanner.nextLine(); // Consume newline
@@ -540,6 +514,139 @@ public class UserInterface {
         System.out.println("Enter any number to get to the start menu");
         scanner.nextInt();
         start();
+    }
+
+    public void houseFilterTeacher(){
+        menu.filterByHouse();
+        FilterData filterData = new FilterData(studentController, teacherController);
+        int houseChoice = scanner.nextInt();
+        switch (houseChoice) {
+            case 1:
+                String Gryffindor = "GRYFFINDOR";
+                List<HogwartsTeacher> gryffindorFilterred = filterData.filterTeacherHouse(HouseOrigin.valueOf(Gryffindor));
+                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsTeacher teacher : gryffindorFilterred) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
+                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
+                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                }
+                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 2:
+                String Hufflepuff = "HUFFLEPUFF";
+                List<HogwartsTeacher> hufflepuffFiltered  = filterData.filterTeacherHouse(HouseOrigin.valueOf(Hufflepuff));
+                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsTeacher teacher : hufflepuffFiltered ) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
+                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
+                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                }
+                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 3:
+                String Ravenclaw = "RAVENCLAW";
+                List<HogwartsTeacher> ravenclawFiltered = filterData.filterTeacherHouse(HouseOrigin.valueOf(Ravenclaw));
+                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsTeacher teacher : ravenclawFiltered ) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
+                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
+                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                }
+                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 4:
+                String Slytherin = "SLYTHERIN";
+                List<HogwartsTeacher> slytherinFiltered = filterData.filterTeacherHouse(HouseOrigin.valueOf(Slytherin));
+                System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+                System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsTeacher teacher : slytherinFiltered ) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                            teacher.getFirstName(), teacher.getMiddleName(), teacher.getLastName(), teacher.getAge(),
+                            teacher.getRole(), teacher.getEmploymentStart(), teacher.getEmploymentEnd(),
+                            teacher.getHouse().getName(), teacher.isHeadOfHouse());
+                }
+                System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            default:
+                System.out.println("Ugyldigt valg. Prøv igen.");
+
+        }
+    }
+    public void houseFilterStudents(){
+        menu.filterByHouse();
+        FilterData filterData = new FilterData(studentController, teacherController);
+        int houseChoice = scanner.nextInt();
+        switch (houseChoice) {
+            case 1:
+                String Gryffindor = "GRYFFINDOR";
+                List<HogwartsStudent> gryffindorFilterred = filterData.filterStudentHouse(HouseOrigin.valueOf(Gryffindor));
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsStudent student : gryffindorFilterred) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
+                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
+                            student.isGraduated(), student.getHouse().getName());
+                }
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 2:
+                String Hufflepuff = "HUFFLEPUFF";
+                List<HogwartsStudent> hufflepuffFilterred = filterData.filterStudentHouse(HouseOrigin.valueOf(Hufflepuff));
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsStudent student : hufflepuffFilterred) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
+                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
+                            student.isGraduated(), student.getHouse().getName());
+                }
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 3:
+                String Ravenclaw = "RAVENCLAW";
+                List<HogwartsStudent> ravenclawFilterred = filterData.filterStudentHouse(HouseOrigin.valueOf(Ravenclaw));
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsStudent student : ravenclawFilterred) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
+                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
+                            student.isGraduated(), student.getHouse().getName());
+                }
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            case 4:
+                String Slytherin = "SLYTHERIN";
+                List<HogwartsStudent> slytherinFilterred = filterData.filterStudentHouse(HouseOrigin.valueOf(Slytherin));
+                System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                System.out.println("│ First Name    │ Middle Name   │ Last Name     │ Age   │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+                System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                for (HogwartsStudent student : slytherinFilterred) {
+                    System.out.printf("│ %-14s│ %-14s│ %-14s│ %-6d│ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                            student.getFirstName(), student.getMiddleName(), student.getLastName(), student.getAge(),
+                            student.getRole(), student.getEnrollmentYear(), student.getGraduationYear(),
+                            student.isGraduated(), student.getHouse().getName());
+                }
+                System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+                break;
+            default:
+                System.out.println("Ugyldigt valg. Prøv igen.");
+
+        }
     }
 
 }

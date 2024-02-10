@@ -76,6 +76,14 @@ public class Menu {
         System.out.println(lineBreak);
     }
 
+    public void filterByHouse(){
+        System.out.println(lineBreak);
+        System.out.println("1. GRYFFINDOR");
+        System.out.println("2. HUFFELPUFF");
+        System.out.println("3. RAVENCLAW");
+        System.out.println("4. SLYTHERIN");
+        System.out.println(lineBreak);
+    }
 
 
 }
