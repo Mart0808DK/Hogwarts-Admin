@@ -1,10 +1,10 @@
-package edu.hogwarts.application;
+package edu.hogwarts.controller;
 
-import edu.hogwarts.data.HogwartsStudent;
+import edu.hogwarts.model.HogwartsStudent;
 
 import java.util.*;
 
-public class StudentController extends Controller<HogwartsStudent>  {
+public class StudentController extends Controller<HogwartsStudent> {
     private final HashMap<UUID, HogwartsStudent> students = new HashMap<>();
 
     public StudentController() {

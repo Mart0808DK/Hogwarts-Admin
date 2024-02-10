@@ -1,4 +1,4 @@
-package edu.hogwarts.application;
+package edu.hogwarts.controller;
 
 import java.util.*;
 

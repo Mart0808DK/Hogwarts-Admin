@@ -1,4 +1,4 @@
-package edu.hogwarts.data;
+package edu.hogwarts.model.course;
 
 import edu.generic.Student;
 import edu.generic.Teacher;

@@ -1,7 +1,8 @@
 package edu.hogwarts.application;
 
-import edu.generic.empType;
-import edu.hogwarts.data.*;
+import edu.hogwarts.controller.StudentController;
+import edu.hogwarts.controller.TeacherController;
+import edu.hogwarts.model.*;
 import edu.utility.FilterData;
 import edu.utility.SortData;
 

@@ -1,8 +1,6 @@
-package edu.hogwarts.application;
+package edu.hogwarts.controller;
 
-import edu.generic.Teacher;
-import edu.hogwarts.data.HogwartsStudent;
-import edu.hogwarts.data.HogwartsTeacher;
+import edu.hogwarts.model.HogwartsTeacher;
 
 import java.util.*;
 

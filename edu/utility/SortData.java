@@ -1,9 +1,9 @@
 package edu.utility;
 
-import edu.hogwarts.application.StudentController;
-import edu.hogwarts.application.TeacherController;
-import edu.hogwarts.data.HogwartsStudent;
-import edu.hogwarts.data.HogwartsTeacher;
+import edu.hogwarts.controller.StudentController;
+import edu.hogwarts.controller.TeacherController;
+import edu.hogwarts.model.HogwartsStudent;
+import edu.hogwarts.model.HogwartsTeacher;
 
 import java.util.Comparator;
 import java.util.List;

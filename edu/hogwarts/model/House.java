@@ -1,4 +1,4 @@
-package edu.hogwarts.data;
+package edu.hogwarts.model;
 
 public class House implements HogwartsPerson {
 
@@ -57,24 +57,6 @@ public class House implements HogwartsPerson {
         return colors;
     }
 
-
-    public boolean equalsHouse(Object object) {
-        if (this == object) {
-            return true;
-        }
-
-        if (!(object instanceof House)){
-            return false;
-        }
-
-        House objHosue = (House) object;
-
-        if (this.name.equals(objHosue.name)) {
-            return true;
-        }
-
-        return false;
-    }
 
 
     public String toString() {

@@ -1,4 +1,4 @@
-package edu.hogwarts.data;
+package edu.hogwarts.model;
 
 import edu.generic.Student;
 

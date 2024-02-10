@@ -1,4 +1,4 @@
-package edu.hogwarts.data;
+package edu.hogwarts.model;
 
 public enum HouseOrigin {
     GRYFFINDOR, HUFFLEPUFF, RAVENCLAW, SLYTHERIN, UNKNOWN

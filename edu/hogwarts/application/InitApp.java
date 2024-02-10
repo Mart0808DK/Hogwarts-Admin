@@ -1,9 +1,9 @@
     package edu.hogwarts.application;
-    import edu.hogwarts.data.*;
+    import edu.hogwarts.controller.StudentController;
+    import edu.hogwarts.controller.TeacherController;
+    import edu.hogwarts.model.*;
 
-    import java.awt.*;
     import java.time.LocalDate;
-    import java.util.Arrays;
 
     public class InitApp {
         private final StudentController studentController = new StudentController();
