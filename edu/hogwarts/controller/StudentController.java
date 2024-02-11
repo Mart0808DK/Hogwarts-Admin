@@ -37,16 +37,17 @@ public class StudentController extends Controller<HogwartsStudent> {
 
     public void update(UUID id, HogwartsStudent student) {
         var oldStudent = get(id);
-        assert oldStudent != null;
-        oldStudent.setFullName(student.getFullName());
-        oldStudent.setBirthDate(student.getBirthDate());
-        oldStudent.setHouse(student.getHouse());
-        oldStudent.setPrefect(student.isPrefect());
-        oldStudent.setTeams(student.getTeams());
-        oldStudent.setEnrollmentYear(student.getEnrollmentYear());
-        oldStudent.setGraduationYear(student.getGraduationYear());
-        oldStudent.setGraduated(student.isGraduated());
+        if (oldStudent != null) {
+            oldStudent.setFullName(student.getFullName());
+            oldStudent.setBirthDate(student.getBirthDate());
+            oldStudent.setHouse(student.getHouse());
+            oldStudent.setPrefect(student.isPrefect());
+            oldStudent.setTeams(student.getTeams());
+            oldStudent.setEnrollmentYear(student.getEnrollmentYear());
+            oldStudent.setGraduationYear(student.getGraduationYear());
+            oldStudent.setGraduated(student.isGraduated());
 
+        }
     }
 
     public void delete(UUID id) {
